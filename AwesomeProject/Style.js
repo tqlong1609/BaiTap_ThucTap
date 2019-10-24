@@ -10,7 +10,30 @@ const styles = StyleSheet.create({
   // Handle group: Text
   handleGroup: {
     flex: 1,
-    backgroundColor: 'blue',
+    flexDirection:'row',
+  },
+
+  textInput: {
+    alignSelf:'center',
+    margin:20,
+    height: 50,
+    width:150,
+    borderWidth:1,
+    borderRadius:10,
+    borderColor: 'white',
+    color:'white',
+    fontSize:20
+  },
+
+  textHandle: {
+    fontSize:30,
+    color:'white',
+  },
+
+  groupTotal: {
+    flexDirection:'row',
+    marginLeft:90,
+    alignSelf:'center'
   },
 
   listGroup: {
@@ -39,8 +62,14 @@ const styles = StyleSheet.create({
   Text: {
     fontSize: 15,
     color: 'white'
+  },
+
+  nameGroup: {
+    flexDirection:'row'
   }
   //end header information
+
+
 });
 
 export default styles;
