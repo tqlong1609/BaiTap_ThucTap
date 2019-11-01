@@ -9,47 +9,49 @@
 import React, {Component} from 'react';
 import Knight from './compoKnight';
 import styles from './styles';
+
 import {Image, Text, View, Alert, TouchableOpacity} from 'react-native';
 
 import {} from 'react-native/Libraries/NewAppScreen';
+import { connect } from 'react-redux';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      value: 0,
-      valueKnight1: 0,
-      valueKnight2: 0,
-    };
-    this._onPressButtonDragon = this._onPressButtonDragon.bind(this);
-    this._attackAKnight1 = this._attackAKnight1.bind(this);
-    this._attackAKnight2 = this._attackAKnight2.bind(this);
-    this._opPressRefresh = this._opPressRefresh.bind(this);
+    // this.state = {
+    //   value: 0,
+    //   valueKnight1: 0,
+    //   valueKnight2: 0,
+    // };
+    // this._onPressButtonDragon = this._onPressButtonDragon.bind(this);
+    // this._attackAKnight1 = this._attackAKnight1.bind(this);
+    // this._attackAKnight2 = this._attackAKnight2.bind(this);
+    // this._opPressRefresh = this._opPressRefresh.bind(this);
   }
 
-  _onPressButtonDragon() {
-    let {value, valueKnight1, valueKnight2} = this.state;
-    this.setState({
-      value: value + 1,
-      valueKnight1: valueKnight1 + 1,
-      valueKnight2: valueKnight2 + 1,
-    });
-  }
+  //  {
+    // let {value, valueKnight1, valueKnight2} = this.state;
+    // this.setState({
+    //   value: value + 1,
+    //   valueKnight1: valueKnight1 + 1,
+    //   valueKnight2: valueKnight2 + 1,
+    // });
+  // }
 
-  _attackAKnight1() {
-    this.setState(prevState => ({
-      valueKnight1: prevState.valueKnight1 + 1,
-    }));
-  }
-  _attackAKnight2() {
-    this.setState(prevState => ({
-      valueKnight2: prevState.valueKnight2 + 1,
-    }));
-  }
+  // _attackAKnight1() {
+  //   this.setState(prevState => ({
+  //     valueKnight1: prevState.valueKnight1 + 1,
+  //   }));
+  // }
+  // _attackAKnight2() {
+  //   this.setState(prevState => ({
+  //     valueKnight2: prevState.valueKnight2 + 1,
+  //   }));
+  // }
 
-  _opPressRefresh() {
-    this.setState({value: 0, valueKnight1: 0, valueKnight2: 0});
-  }
+  // _opPressRefresh() {
+  //   this.setState({value: 0, valueKnight1: 0, valueKnight2: 0});
+  // }
 
   render() {
     var uri = './image/myImage.jpg';
@@ -77,32 +79,34 @@ class App extends Component {
 
         {/* view refresh */}
         <View style={styles.bodyGroup}>
-          <TouchableOpacity onPress={this._opPressRefresh}>
+          {/* <TouchableOpacity onPress={this._opPressRefresh}>
             <Image
               style={styles.buttonRefresh}
               source={require(uriButtonRefresh)}
             />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
 
         <View style={styles.headerFootGroup}>
-          <TouchableOpacity onPress={this._onPressButtonDragon}>
+          <TouchableOpacity onPress={this.props._onPressButtonDragon}>
             <Image style={styles.buttonLion} source={require(uriButtonLion)} />
           </TouchableOpacity>
-          <Text style={styles.textOutSide}>{this.state.value}</Text>
+          <Text style={styles.textOutSide}>{this.props.value}</Text>
         </View>
         <View style={styles.bottomFootGroup}>
           <Knight
             uriImage={require(uriImageKnight1)}
-            value={this.state.valueKnight1}
-            onAttackShield={this._attackAKnight1}
-            onAttackSword={this._attackAKnight2}
+            typeKnight={'knight1'}
+            // value={this.state.valueKnight1}
+            // onAttackShield={this._attackAKnight1}
+            // onAttackSword={this._attackAKnight2}
           />
           <Knight
             uriImage={require(uriImageKnight2)}
-            value={this.state.valueKnight2}
-            onAttackShield={this._attackAKnight2}
-            onAttackSword={this._attackAKnight1}
+            typeKnight={'knight2'}
+            // value={this.state.valueKnight2}
+            // onAttackShield={this._attackAKnight2}
+            // onAttackSword={this._attackAKnight1}
           />
         </View>
       </View>
@@ -110,4 +114,16 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    value: state.valueDragon
+  };
+}
+
+const mapDispachToProps = (dispach) => {
+  return {
+    _onPressButtonDragon: () => dispach({type:'addDragon'})
+  }
+}
+
+export default connect(mapStateToProps,mapDispachToProps) (App);
