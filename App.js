@@ -8,7 +8,7 @@
 
 import React, {Component} from 'react';
 
-import {View, Text, FlatList} from 'react-native';
+import {View, Text, FlatList, TouchableOpacity} from 'react-native';
 import styles from './styles.js';
 import ItemNumber from './ItemNumber';
 import FooterNumber from './FooterNumber';
@@ -39,6 +39,15 @@ class App extends Component {
             horizontal={false}
           />
         </View>
+        <View style={styles.viewClearAll}>
+          <TouchableOpacity
+            style={styles.btnClearAll}
+            onPress={() => {
+              this.props.onClearAll();
+            }}>
+            <Text style={styles.textClearAll}>Clear All</Text>
+          </TouchableOpacity>
+        </View>
         <FooterNumber />
       </View>
     );
@@ -55,6 +64,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onLoadData: () => dispatch({type: 'loadData'}),
+    onClearAll: () => dispatch({type: 'clearAll'}),
   };
 };
 

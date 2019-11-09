@@ -11,6 +11,13 @@ const reducer = (state = initState, action) => {
     newState.arrTemp = newArrTemp;
   }
 
+  if (action.type === 'clearAll') {
+    const newArr = {...newState.arrTemp};
+    for (const member in newArr) delete newArr[member];
+    // newArr = {};
+    // console.log(newArr);
+    newState.arrTemp = newArr;
+  }
   return newState;
 };
 export default reducer;

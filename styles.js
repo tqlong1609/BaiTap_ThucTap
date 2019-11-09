@@ -53,6 +53,23 @@ const styles = StyleSheet.create({
     backgroundColor: 'blue',
     flex: 1,
   },
+
+  viewClearAll: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+
+  btnClearAll: {
+    borderWidth: 3,
+    padding: 7,
+    borderRadius: 5,
+  },
+
+  textClearAll: {
+    fontSize: 20,
+    alignSelf: 'center',
+  },
 });
 
 export default styles;
