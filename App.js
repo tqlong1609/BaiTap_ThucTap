@@ -24,7 +24,6 @@ class App extends Component {
 
   render() {
     const {arrData, arrTemp} = this.props;
-    console.log('arrTmp', arrTemp);
     return (
       <View style={styles.container}>
         <View style={styles.containerFlatlist}>
@@ -34,6 +33,7 @@ class App extends Component {
             renderItem={({item, index}) => (
               <ItemNumber value={item.label} index={index} />
             )}
+            keyExtractor={item => item.id}
             numColumns={5}
             horizontal={false}
           />

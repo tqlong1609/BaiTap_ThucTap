@@ -1,4 +1,4 @@
-const initState = {arrData: [], arrTemp: []};
+const initState = {arrData: [], arrTemp: {}};
 const reducer = (state = initState, action) => {
   const newState = {...state};
 
@@ -6,9 +6,10 @@ const reducer = (state = initState, action) => {
     newState.arrData = action.value;
   }
   if (action.type === 'sendIndex') {
-    const newArrTemp = [...newState.arrTemp];
-    newArrTemp.push(action.value);
+    const newArrTemp = {...newState.arrTemp};
+    newArrTemp[action.value.index] = !newArrTemp[action.value.index];
     newState.arrTemp = newArrTemp;
+    console.log(newArrTemp);
   }
 
   return newState;

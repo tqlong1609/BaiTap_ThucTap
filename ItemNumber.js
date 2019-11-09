@@ -8,29 +8,44 @@ class ItemNumber extends Component {
     super(props);
     this.state = {
       index: 0,
-      isSelect: true,
+      isSelect: false,
     };
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
     return {
       index: nextProps.index,
-      is_select: nextProps.arrTemp.indexOf(nextProps.index) >= 0 ? true : false,
+      isSelect: nextProps.arrTemp[prevState.index] ? true : false,
     };
   }
 
+  shouldComponentUpdate(nextProps) {
+    const newIsSelect = nextProps.arrTemp[this.state.index] ? true : false;
+
+    const {isSelect} = this.state;
+    // console.log('isselect',isSelect)
+    // console.log('newIsSelect', newIsSelect)
+    if (newIsSelect != isSelect) {
+      return true;
+    }
+
+    return false;
+  }
+
   render() {
-    const {isSelect: is_select} = this.state;
+    console.log('===isRender');
+
+    const {isSelect} = this.state;
     return (
       <View style={styles.itemsFlatlist}>
         <View
           style={[
             styles.itemsView,
-            {backgroundColor: is_select ? 'red' : 'transparent'},
+            {backgroundColor: isSelect ? 'red' : 'transparent'},
           ]}>
           <TouchableOpacity
             onPress={() => {
-              this.props.onSendIndex(this.state.index);
+              this.props.onSendIndex(this.state.index, this.state.isSelect);
             }}>
             <View style={styles.containerItemNumber}>
               <Text>{this.props.value}</Text>
@@ -50,7 +65,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSendIndex: index => dispatch({type: 'sendIndex', value: index}),
+    onSendIndex: (index, isSelect) =>
+      dispatch({type: 'sendIndex', value: {index, isSelect}}),
   };
 };
 
