@@ -23,8 +23,6 @@ class ItemNumber extends Component {
     const newIsSelect = nextProps.arrTemp[this.state.index] ? true : false;
 
     const {isSelect} = this.state;
-    // console.log('isselect',isSelect)
-    // console.log('newIsSelect', newIsSelect)
     if (newIsSelect != isSelect) {
       return true;
     }
@@ -33,22 +31,20 @@ class ItemNumber extends Component {
   }
 
   render() {
-    console.log('===isRender');
-
     const {isSelect} = this.state;
     return (
       <View style={styles.itemsFlatlist}>
-        <View
-          style={[
-            styles.itemsView,
-            {backgroundColor: isSelect ? 'red' : 'transparent'},
-          ]}>
+        <View>
           <TouchableOpacity
             onPress={() => {
               this.props.onSendIndex(this.state.index, this.state.isSelect);
             }}>
-            <View style={styles.containerItemNumber}>
-              <Text>{this.props.value}</Text>
+            <View
+              style={[
+                styles.itemsView,
+                {backgroundColor: isSelect ? 'red' : 'transparent'},
+              ]}>
+              <Text style={styles.textItemsFlatList}>{this.props.value}</Text>
             </View>
           </TouchableOpacity>
         </View>

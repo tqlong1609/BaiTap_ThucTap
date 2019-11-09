@@ -11,6 +11,7 @@ import React, {Component} from 'react';
 import {View, Text, FlatList} from 'react-native';
 import styles from './styles.js';
 import ItemNumber from './ItemNumber';
+import FooterNumber from './FooterNumber';
 import {connect} from 'react-redux';
 
 class App extends Component {
@@ -23,7 +24,7 @@ class App extends Component {
   }
 
   render() {
-    const {arrData, arrTemp} = this.props;
+    const {arrData} = this.props;
     return (
       <View style={styles.container}>
         <View style={styles.containerFlatlist}>
@@ -38,9 +39,7 @@ class App extends Component {
             horizontal={false}
           />
         </View>
-        <View style={styles.containerSelectNumber}>
-          <Text style={styles.textSelectNumber}>Slected number: </Text>
-        </View>
+        <FooterNumber />
       </View>
     );
   }

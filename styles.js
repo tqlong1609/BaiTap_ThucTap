@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
 
   textItemsFlatList: {
     alignSelf: 'center',
+    fontSize: 17,
   },
 
   containerSelectNumber: {
@@ -49,7 +50,8 @@ const styles = StyleSheet.create({
   },
 
   containerItemNumber: {
-    alignSelf: 'center'
+    backgroundColor: 'blue',
+    flex: 1,
   },
 });
 

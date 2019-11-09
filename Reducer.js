@@ -9,7 +9,6 @@ const reducer = (state = initState, action) => {
     const newArrTemp = {...newState.arrTemp};
     newArrTemp[action.value.index] = !newArrTemp[action.value.index];
     newState.arrTemp = newArrTemp;
-    console.log(newArrTemp);
   }
 
   return newState;
