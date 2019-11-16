@@ -7,13 +7,13 @@ import {
   TextInput,
   KeyboardAvoidingView,
 } from 'react-native';
-import styles from '../css';
+import styles from '../Screens/Home/css';
 
 export class Header extends Component {
   render() {
     return (
       <View style={styles.containerHeader}>
-        <TouchableOpacity style={{flex: 1}}>
+        <TouchableOpacity style={styles.containerButtonMenu}>
           <Image
             source={require('../Images/menu_127px.png')}
             style={styles.imageMenu}
@@ -23,7 +23,7 @@ export class Header extends Component {
           enabled={false}
           style={styles.textInputSearch}
           behavior="height">
-          <TextInput placeholder={'Search'}></TextInput>
+          <TextInput placeholder={'Search'} />
         </KeyboardAvoidingView>
       </View>
     );

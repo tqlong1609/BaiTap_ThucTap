@@ -1,20 +1,31 @@
 import React, {Component} from 'react';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
-import Home from './Screens/Home';
-import Detail from './Screens/Detail';
-import Handle from './Screens/Handle';
+import Home from './Screens/Home/Home';
+import Detail from './Screens/Detail/Detail';
+import Handle from './Screens/Handle/Handle';
+
+import {
+  HomeScreenName,
+  EditScreenName,
+  DetailScreenName,
+  AddScreenName,
+} from './src/ScreensName';
 
 const rootStack = createStackNavigator(
   {
-    Home: {
+    HomeScreenName: {
       screen: Home,
       navigationOptions: {headerShown: false},
     },
-    Detail: {screen: Detail, navigationOptions: {headerTitle: 'Detail'}},
-    Handle: {screen: Handle, navigationOptions: {headerTitle: 'Handle'}},
+    DetailScreenName: {
+      screen: Detail,
+      navigationOptions: {headerTitle: 'Detail'},
+    },
+    AddScreenName: {screen: Handle, navigationOptions: {headerTitle: 'Add'}},
+    EditScreenName: {screen: Handle, navigationOptions: {headerTitle: 'Edit'}},
   },
-  {initialRouteName: 'Home'},
+  {initialRouteName: 'HomeScreenName'},
 );
 
 const AppContainer = createAppContainer(rootStack);

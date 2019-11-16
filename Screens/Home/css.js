@@ -38,6 +38,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
 
+  containerButtonMenu: {
+    flex: 1,
+    alignSelf: 'center',
+  },
+
   textInputSearch: {
     margin: 20,
     flex: 5,
@@ -49,8 +54,9 @@ const styles = StyleSheet.create({
 
   imageMenu: {
     margin: 5,
-    width: 70,
-    height: 70,
+    width: 50,
+    height: 50,
+    alignSelf: 'center',
   },
 
   containerFlatlist: {
@@ -116,7 +122,7 @@ const styles = StyleSheet.create({
   },
 
   viewTextSort: {
-    margin:5,
+    margin: 5,
     flex: 35,
   },
 

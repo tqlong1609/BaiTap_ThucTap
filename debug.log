@@ -1,0 +1,2 @@
+[1116/112012.807:ERROR:process_info.cc(375)] NtQuerySystemInformation SystemExtendedHandleInformation: {Not Enough Quota} Not enough virtual memory or paging file quota is available to complete the specified operation. (0xc0000017)
+[1116/112031.437:ERROR:process_info.cc(359)] UncheckedAllocate

@@ -1,5 +1,6 @@
-const AppScreenName = 'AppScreen';
-const HandleScreenName = 'HandleScreen';
+const HomeScreenName = 'AppScreen';
+const AddScreenName = 'AddScreen';
 const DetailScreenName = 'DetailScreen';
+const EditScreenName = 'EditScreen';
 
-export {AppScreenName, HandleScreenName, DetailScreenName};
+export {HomeScreenName, EditScreenName, DetailScreenName, AddScreenName};
